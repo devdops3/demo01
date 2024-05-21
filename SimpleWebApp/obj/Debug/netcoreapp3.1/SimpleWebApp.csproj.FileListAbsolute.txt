@@ -1,0 +1,8 @@
+C:\Users\hanlinkyaw\project01\SimpleWebApp\obj\Debug\netcoreapp3.1\SimpleWebApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hanlinkyaw\project01\SimpleWebApp\obj\Debug\netcoreapp3.1\SimpleWebApp.AssemblyInfoInputs.cache
+C:\Users\hanlinkyaw\project01\SimpleWebApp\obj\Debug\netcoreapp3.1\SimpleWebApp.AssemblyInfo.cs
+C:\Users\hanlinkyaw\project01\SimpleWebApp\obj\Debug\netcoreapp3.1\SimpleWebApp.csproj.CoreCompileInputs.cache
+C:\Users\hanlinkyaw\project01\SimpleWebApp\obj\Debug\netcoreapp3.1\SimpleWebApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\hanlinkyaw\project01\SimpleWebApp\obj\Debug\netcoreapp3.1\SimpleWebApp.RazorAssemblyInfo.cache
+C:\Users\hanlinkyaw\project01\SimpleWebApp\obj\Debug\netcoreapp3.1\SimpleWebApp.RazorAssemblyInfo.cs
+C:\Users\hanlinkyaw\project01\SimpleWebApp\obj\Debug\netcoreapp3.1\SimpleWebApp.sourcelink.json

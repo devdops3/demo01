@@ -1,19 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace SimpleWebApp.Pages;
-
-public class IndexModel : PageModel
+namespace SimpleWebApp.Pages
 {
-    private readonly ILogger<IndexModel> _logger;
-
-    public IndexModel(ILogger<IndexModel> logger)
+    public class PrivacyModel : PageModel  // Added opening brace
     {
-        _logger = logger;
-    }
-
-    public void OnGet()
-    {
-
+        public void OnGet()
+        {
+        }
     }
 }
