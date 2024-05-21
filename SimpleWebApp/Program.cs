@@ -13,6 +13,19 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+using System;
+
+namespace SimpleWebApp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello, World!");
+            // Your existing top-level code here, converted into the Main method
+        }
+    }
+}
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
