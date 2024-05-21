@@ -21,11 +21,11 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '5.0'
+        dotnet-version: '7.0'
 
     - name: Restore dependencies
       run: dotnet restore
-      working-directory: ./SimpleWebApp 
+      working-directory: ./clean-structured-project 
 
     - name: Build
       run: dotnet build --configuration Release --no-restore
@@ -33,11 +33,11 @@ jobs:
 
     - name: Test
       run: dotnet test --no-build --verbosity normal
-      working-directory: ./SimpleWebApp 
+      working-directory: ./clean-structured-project 
 
     - name: Publish
       run: dotnet publish --configuration Release --output ./publish
-      working-directory: ./SimpleWebApp
+      working-directory: ./clean-structured-project
 
     - name: Deploy to IIS
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
@@ -45,5 +45,5 @@ jobs:
         server: ${{ secrets.SERVER_ADDRESS }}
         username: ${{ secrets.SERVER_USERNAME }}
         password: ${{ secrets.SERVER_PASSWORD }}
-        local-dir: ./project01/SimpleWebApp/publiash
+        local-dir: ./project01/clean-structured-project/publiash
         server-dir: 'C:\inetpub\wwwroot'
