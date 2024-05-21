@@ -25,19 +25,19 @@ jobs:
 
     - name: Restore dependencies
       run: dotnet restore
-      working-directory: D:/a/demo01/demo01/project01/SimpleWebApp
+      working-directory: /c/Users/hanlinkyaw/project01/SimpleWebApp
 
     - name: Build
       run: dotnet build --configuration Release --no-restore
-      working-directory: D:/a/demo01/demo01/project01/SimpleWebApp
+      working-directory: /c/Users/hanlinkyaw/project01/SimpleWebApp 
 
     - name: Test
       run: dotnet test --no-build --verbosity normal
-      working-directory: D:/a/demo01/demo01/project01/SimpleWebApp
+      working-directory: /c/Users/hanlinkyaw/project01/SimpleWebApp 
 
     - name: Publish
       run: dotnet publish --configuration Release --output ./publish
-      working-directory: D:/a/demo01/demo01/project01/SimpleWebApp
+      working-directory: /c/Users/hanlinkyaw/project01/SimpleWebApp
 
     - name: Deploy to IIS
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
@@ -45,5 +45,5 @@ jobs:
         server: ${{ secrets.SERVER_ADDRESS }}
         username: ${{ secrets.SERVER_USERNAME }}
         password: ${{ secrets.SERVER_PASSWORD }}
-        local-dir: D:/a/demo01/demo01/project01/SimpleWebApp/publish
+        local-dir: /c/Users/hanlinkyaw/project01/SimpleWebApp/publish
         server-dir: 'C:\inetpub\wwwroot'
