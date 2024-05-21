@@ -3,32 +3,36 @@ name: .NET CI/CD Pipeline to IIS
 on:
   push:
     branches:
-      - main
+      - main  # Set this to trigger on pushes to the main branch
 
 jobs:
   build-and-deploy:
-    runs-on: windows-latest
+    runs-on: windows-latest  # Use a Windows runner
 
     steps:
     - name: Checkout Code
       uses: actions/checkout@v2
 
-    - name: Setup .NET
+    - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '3.1.x'  # Using a correct version format
+        dotnet-version: '3.1'  # Specify the .NET Core version
 
-    - name: Restore Dependencies
+    - name: Restore dependencies
       run: dotnet restore
+      working-directory: ./project01/SimpleWebApp  # Adjust this path to match your repository structure
 
     - name: Build
       run: dotnet build --configuration Release --no-restore
+      working-directory: ./project01/SimpleWebApp  # Adjust this path to match your repository structure
 
     - name: Test
       run: dotnet test --no-build --verbosity normal
+      working-directory: ./project01/SimpleWebApp  # Adjust this path if your test project is elsewhere
 
     - name: Publish
       run: dotnet publish --configuration Release --output ./publish
+      working-directory: ./project01/SimpleWebApp  # Adjust this path to match your repository structure
 
     - name: Deploy to IIS
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
@@ -36,5 +40,5 @@ jobs:
         server: ${{ secrets.SERVER_ADDRESS }}
         username: ${{ secrets.SERVER_USERNAME }}
         password: ${{ secrets.SERVER_PASSWORD }}
-        local-dir: ./SimpleWebApp/
-        server-dir: 'C:\inetpub'  # Adjust this path to where you want your app to be deployed on the server
+        local-dir: ./project01/SimpleWebApp/publish/  # Adjust this path to where your publish folder ends up
+        server-dir: 'C:\inetpub\wwwroot\'  # Specify the exact path on your server where the app should be deployedgg
