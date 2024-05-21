@@ -3,7 +3,7 @@ name: .NET CI/CD Pipeline to IIS
 on:
   push:
     branches:
-      - main  # Set this to the branch you want to deploy from
+      - main
 
 jobs:
   build-and-deploy:
@@ -14,9 +14,9 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Setup .NET
-      uses: actions/setup-dotnet@v2
+      uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '4'  # Specify your .NET version
+        dotnet-version: '3.1.x'  # Using a correct version format
 
     - name: Restore Dependencies
       run: dotnet restore
@@ -37,5 +37,4 @@ jobs:
         username: ${{ secrets.SERVER_USERNAME }}
         password: ${{ secrets.SERVER_PASSWORD }}
         local-dir: ./SimpleWebApp/
-        server-dir: 'C:\inetpub'  # Adjust this path
-
+        server-dir: 'C:\inetpub'  # Adjust this path to where you want your app to be deployed on the server
