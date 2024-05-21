@@ -38,3 +38,4 @@ jobs:
         password: ${{ secrets.SERVER_PASSWORD }}
         local-dir: ./SimpleWebApp/
         server-dir: 'C:\inetpub'  # Adjust this path
+
