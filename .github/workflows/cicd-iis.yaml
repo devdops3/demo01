@@ -1,13 +1,6 @@
-name: .NET CI/CD Pipeline to IIS
-
-on:
-  push:
-    branches:
-      - main  # Set this to trigger on pushes to the main branch
-
 jobs:
   build-and-deploy:
-    runs-on: windows-latest  # Use a Windows runner
+    runs-on: windows-latest
 
     steps:
     - name: Checkout Code
@@ -16,23 +9,23 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '3.1'  # Specify the .NET Core version
+        dotnet-version: '3.1'
 
     - name: Restore dependencies
       run: dotnet restore
-      working-directory: ./project01/SimpleWebApp  # Adjust this path to match your repository structure
+      working-directory: D:/a/demo01/demo01/project01/SimpleWebApp
 
     - name: Build
       run: dotnet build --configuration Release --no-restore
-      working-directory: ./project01/SimpleWebApp  # Adjust this path to match your repository structure
+      working-directory: D:/a/demo01/demo01/project01/SimpleWebApp
 
     - name: Test
       run: dotnet test --no-build --verbosity normal
-      working-directory: ./project01/SimpleWebApp  # Adjust this path if your test project is elsewhere
+      working-directory: D:/a/demo01/demo01/project01/SimpleWebApp
 
     - name: Publish
       run: dotnet publish --configuration Release --output ./publish
-      working-directory: ./project01/SimpleWebApp  # Adjust this path to match your repository structure
+      working-directory: D:/a/demo01/demo01/project01/SimpleWebApp
 
     - name: Deploy to IIS
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
@@ -40,5 +33,5 @@ jobs:
         server: ${{ secrets.SERVER_ADDRESS }}
         username: ${{ secrets.SERVER_USERNAME }}
         password: ${{ secrets.SERVER_PASSWORD }}
-        local-dir: ./project01/SimpleWebApp/publish/  # Adjust this path to where your publish folder ends up
-        server-dir: 'C:\inetpub\wwwroot\'  # Specify the exact path on your server where the app should be deployedgg
+        local-dir: D:/a/demo01/demo01/project01/SimpleWebApp/publish
+        server-dir: 'C:\inetpub\wwwroot'
