@@ -45,5 +45,5 @@ jobs:
         server: ${{ secrets.SERVER_ADDRESS }}
         username: ${{ secrets.SERVER_USERNAME }}
         password: ${{ secrets.SERVER_PASSWORD }}
-        local-dir: ./project01/clean-structured-project/publiash
+        local-dir: ./project01/clean-structured-project/publiash/
         server-dir: 'C:\inetpub\wwwroot'
